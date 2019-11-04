@@ -1,0 +1,35 @@
+
+---
+
+ - hosts: dev
+   tags: dev
+   tasks:
+   - name: pulling image
+     raw: docker pull meghanath/task1:1
+   - name: pulling image
+     raw: docker pull meghanath/task2:1
+   - name: remove containers
+     raw: docker rm -f c1 c2
+     ignore_errors: true
+   - name: create container c1
+     raw: docker run -dti --name c1 -p 99:80 -f Dockerfile .
+   - name: create container c2
+     raw: docker run -dti --name c2 -p 98:80 -f Dockerfile1 .
+
+
+ - hosts: qa
+   tags: qa
+   tasks:
+   - name: pulling image
+     raw: docker pull meghanath/task1:1
+   - name: pulling image
+     raw: docker pull meghanath/task2:1
+   - name: remove containers
+     raw: docker rm -f c1 c2
+     ignore_errors: true
+   - name: create container c1
+     raw: docker run -dti --name c1 -p 99:80 -f Dockerfile .
+   - name: create container c2
+     raw: docker run -dti --name c2 -p 98:80 -f Dockerfile1 .
+
+   
