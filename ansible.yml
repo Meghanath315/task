@@ -13,8 +13,8 @@
      ignore_errors: true
    - name: create container c1
      raw: docker run -dti --name c1 -p 99:80 /bin/bash .
-   - name: create container c2
-     raw: docker run -dti --name c2 -p 98:80 /bin/bash .
+//   - name: create container c2
+//     raw: docker run -dti --name c2 -p 98:80 /bin/bash .
 
 
  - hosts: qa
